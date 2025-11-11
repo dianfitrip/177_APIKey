@@ -1,62 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate API Key</title>
-    <style>
-        body {
-            background-color: #f3e8ff;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembuat API Key</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3e8ff; /* Ungu pastel lembut */
+      color: #4a4a4a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-        h1 {
-            color: #6b21a8;
-            margin-bottom: 20px;
-        }
+    .container {
+      background-color: #f8f5ff; /* Latar belakang putih keunguan */
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(128, 90, 213, 0.25); /* Bayangan ungu lembut */
+      padding: 30px;
+      width: 350px;
+      text-align: center;
+    }
 
-        textarea {
-            width: 300px;
-            height: 100px;
-            border: 2px solid #c084fc;
-            border-radius: 10px;
-            background-color: #faf5ff;
-            color: #4b006e;
-            font-size: 16px;
-            padding: 10px;
-            resize: none;
-            outline: none;
-            margin-bottom: 20px;
-        }
+    h1 {
+      color: #7e57c2; /* Judul ungu pastel */
+      margin-bottom: 20px;
+    }
 
-        button {
-            background-color: #c084fc;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    button {
+      background-color: #b388ff; /* Ungu pastel sedang */
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
 
-        button:hover {
-            background-color: #a855f7;
-        }
-    </style>
+    button:hover {
+      background-color: #9c6bff; /* Ungu sedikit lebih gelap saat hover */
+      transform: scale(1.05);
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      margin-top: 20px;
+      border: 2px solid #c4b5fd; /* Border ungu muda */
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 14px;
+      resize: none;
+      background-color: #ffffff;
+      color: #4a4a4a;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    textarea::placeholder {
+      color: #a78bfa; /* Placeholder ungu pastel */
+    }
+  </style>
 </head>
 <body>
-    <h1>Generate API Key</h1>
+  <div class="container">
+    <h1>Buat API Key</h1>
+    <button onclick="buatApiKey()">Create API Key</button>
     <textarea id="apikey" readonly placeholder="API Key akan muncul di sini..."></textarea>
-    <button id="generateBtn">Create API Key</button>
+  </div>
 
-    <!-- Hubungkan ke file JS -->
-    <script src="index.js"></script>
+  <script>
+    function buatApiKey() {
+      const randomPart = () => Math.random().toString(36).substring(2, 10).toUpperCase();
+      const apiKey = `API-${randomPart()}-${randomPart()}-${randomPart()}`;
+      document.getElementById('apikey').value = apiKey;
+    }
+  </script>
 </body>
 </html>
+
+

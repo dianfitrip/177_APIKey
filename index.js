@@ -6,7 +6,7 @@ const port = 3000
 // Middleware untuk melayani file statis dari folder "public"
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Endpoint contoh
+// Endpoint contoh yamaaadaaa
 app.get('/test', (req, res) => {
   res.send('Hello World!')
 })
